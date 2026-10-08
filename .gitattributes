@@ -1,0 +1,85 @@
+# Normalise line endings so Windows <-> Windows/other machines stay clean.
+* text=auto eol=lf
+
+# ---- Unity text assets: keep as text so diffs/merges work ----
+*.cs             text diff=csharp
+*.shader         text
+*.shadergraph    text
+*.hlsl           text
+*.cginc          text
+*.asmdef         text
+*.asmref         text
+*.json           text
+*.md             text
+*.txt            text
+*.xml            text
+*.yml            text
+*.uxml           text
+*.uss            text
+
+# Unity YAML assets - text, but never auto-merged (merge conflicts here
+# corrupt scenes/prefabs; resolve by picking one side or using UnityYAMLMerge).
+*.unity          text merge=unityyamlmerge
+*.prefab         text merge=unityyamlmerge
+*.asset          text merge=unityyamlmerge
+*.mat            text merge=unityyamlmerge
+*.anim           text merge=unityyamlmerge
+*.controller     text merge=unityyamlmerge
+*.overrideController text merge=unityyamlmerge
+*.physicMaterial text merge=unityyamlmerge
+*.physicsMaterial2D text merge=unityyamlmerge
+*.meta           text merge=unityyamlmerge
+*.mask           text merge=unityyamlmerge
+*.playable       text merge=unityyamlmerge
+*.terrainlayer   text merge=unityyamlmerge
+*.signal         text merge=unityyamlmerge
+*.flare          text merge=unityyamlmerge
+*.brush          text merge=unityyamlmerge
+*.fontsettings   text merge=unityyamlmerge
+*.guiskin        text merge=unityyamlmerge
+*.mixer          text merge=unityyamlmerge
+*.lighting       text merge=unityyamlmerge
+*.renderTexture  text merge=unityyamlmerge
+*.cubemap        text merge=unityyamlmerge
+
+# ---- Binary assets: never diff, never line-ending-mangle ----
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.tga  binary
+*.tif  binary
+*.tiff binary
+*.psd  binary
+*.bmp  binary
+*.exr  binary
+*.hdr  binary
+*.ico  binary
+*.fbx  binary
+*.obj  binary
+*.blend binary
+*.dae  binary
+*.3ds  binary
+*.ma   binary
+*.mb   binary
+*.wav  binary
+*.mp3  binary
+*.ogg  binary
+*.aif  binary
+*.aiff binary
+*.mp4  binary
+*.mov  binary
+*.webm binary
+*.ttf  binary
+*.otf  binary
+*.dll  binary
+*.so   binary
+*.dylib binary
+*.a    binary
+*.pdf  binary
+*.zip  binary
+*.7z   binary
+*.rar  binary
+*.unitypackage binary
+*.cubemap binary
+*.bin  binary

@@ -1,0 +1,137 @@
+{
+  "_comment": "AUTHORITATIVE ARCHITECTURAL DATA - Main Floor. All units in DECIMAL FEET.",
+  "_coordinateSystem": "X = east (right on plan). Z = north (up on plan). Origin (0,0) = inside face of the west exterior wall at the south exterior wall of the left bedroom wing. Y = up, 0 = finished floor.",
+  "_derivation": "Measured from MAIN FLOOR PLAN raster at a verified scale of 20 pixels per foot, cross-checked against three printed dimensions (Great Room 18'-0\", M. Bedroom 13'-0\", Bath 2 9'-6\"). Rooms tile edge-to-edge with no gaps and no overlaps so that walls are generated from genuine boundaries. Values marked \"assumed\": true were NOT printed on the plan - correct these first.",
+  "_deviations": [
+    "Entry at 8'-8\" x 7'-0\" as printed could not reach the Great Room directly, so a short circulation space (HallToEntry) joins them. The plan shows an open threshold there.",
+    "A mudroom between the garage and the laundry is not labelled on the plan but is required: the plan's lockers/broom symbols sit in this zone and a house-to-garage door has to land somewhere.",
+    "Garage modelled 22'-3\" wide rather than the printed 21'-6\" so its east wall lines up with the house's east wall. Clear interior parking space is unaffected.",
+    "Pantry modelled 7'-9\" wide rather than 7'-0\" to close a gap against the garage wall.",
+    "The 2'-4\" x 4'-2\" entry closet is omitted as a room - at that size it is better built as a prop in Stage 6 than as architecture."
+  ],
+
+  "units": "feet",
+  "metersPerFoot": 0.3048,
+
+  "construction": {
+    "exteriorWallThickness": 0.54,
+    "interiorWallThickness": 0.375,
+    "floorSlabThickness": 0.75,
+    "defaultCeilingHeight": 10.0,
+    "doorHeight": 6.75,
+    "windowSillHeight": 2.5,
+    "windowHeadHeight": 7.5
+  },
+
+  "rooms": [
+    { "name": "Bedroom2",       "x":  0.00, "z": 23.00, "w": 11.75, "d": 11.00, "ceiling": 10.0, "type": "bedroom",     "printed": "11'-4\" x 11'-0\"" },
+    { "name": "Bedroom2Closet", "x":  0.00, "z": 20.50, "w":  8.75, "d":  2.50, "ceiling": 10.0, "type": "closet",      "printed": "7'-6\" x 2'-2\"" },
+    { "name": "Bath2",          "x": -1.50, "z": 14.50, "w": 10.25, "d":  6.00, "ceiling": 10.0, "type": "bathroom",    "printed": "9'-6\" x 6'-0\"", "note": "West bump-out of 1'-6\" is the TUB/SHWR alcove." },
+    { "name": "Bath2Vestibule", "x":  0.00, "z": 11.50, "w":  5.00, "d":  3.00, "ceiling": 10.0, "type": "bathroom",    "printed": "5'-0\" x 2'-0\"", "assumed": true },
+    { "name": "Linen",          "x":  5.00, "z": 11.50, "w":  3.75, "d":  3.00, "ceiling": 10.0, "type": "closet",      "assumed": true },
+    { "name": "Hall",           "x":  8.75, "z": 11.50, "w":  3.00, "d": 11.50, "ceiling": 10.0, "type": "circulation", "assumed": true },
+    { "name": "Bedroom3",       "x":  0.00, "z":  0.00, "w": 11.75, "d": 11.50, "ceiling": 10.0, "type": "bedroom",     "printed": "11'-4\" x 11'-0\"" },
+
+    { "name": "GreatRoom",      "x": 11.75, "z":  0.00, "w": 18.00, "d": 15.17, "ceiling": 10.0, "type": "living",      "printed": "18'-0\" x 15'-2\"" },
+    { "name": "Dining",         "x": 11.75, "z": 15.17, "w":  9.33, "d": 12.50, "ceiling": 10.0, "type": "dining",      "printed": "9'-4\" x 12'-6\"" },
+    { "name": "Kitchen",        "x": 21.08, "z": 15.17, "w": 11.42, "d": 12.50, "ceiling": 10.0, "type": "kitchen",     "printed": "11'-4\" x 12'-6\"", "note": "Island with level eating bar; range on the east wall; sink under the north window." },
+    { "name": "HallToEntry",    "x": 29.75, "z": 11.50, "w":  2.75, "d":  3.67, "ceiling": 10.0, "type": "circulation", "assumed": true, "note": "Open threshold linking Great Room, Kitchen and Entry." },
+    { "name": "Pantry",         "x": 29.75, "z":  4.00, "w":  7.75, "d":  7.50, "ceiling": 10.0, "type": "pantry",      "printed": "7'-0\" x 7'-6\"", "note": "Barn door on the north side, 10\" deep shelves both long walls." },
+
+    { "name": "Entry",          "x": 32.50, "z": 11.50, "w":  8.67, "d":  7.00, "ceiling": 10.0, "type": "circulation", "printed": "8'-8\" x 7'-0\"" },
+    { "name": "MudHall",        "x": 41.17, "z": 11.50, "w":  7.33, "d":  4.00, "ceiling": 10.0, "type": "circulation", "assumed": true, "note": "Lockers along the north wall." },
+    { "name": "Powder",         "x": 41.17, "z": 15.50, "w":  7.33, "d":  3.00, "ceiling": 10.0, "type": "bathroom",    "printed": "7'-4\" x 3'-0\"" },
+    { "name": "Laundry",        "x": 48.50, "z": 11.50, "w": 11.25, "d":  7.00, "ceiling": 10.0, "type": "laundry",     "printed": "9'-4\" x 6'-10\"", "note": "Washer and dryer side by side, counter over." },
+    { "name": "BasementStair",  "x": 37.50, "z":  5.50, "w": 10.00, "d":  6.00, "ceiling": 10.0, "type": "stair",       "assumed": true, "note": "Runs DOWN to the basement heading east, matching the plan's arrow. 14 risers at 7.5\"." },
+    { "name": "Mudroom",        "x": 47.50, "z":  5.50, "w": 12.25, "d":  6.00, "ceiling": 10.0, "type": "circulation", "assumed": true, "note": "Garage-to-house transition. Open to the laundry." },
+
+    { "name": "MBedroom",       "x": 32.50, "z": 18.50, "w": 13.00, "d": 15.50, "ceiling": 10.0, "type": "bedroom",     "printed": "13'-0\" x 15'-2\"" },
+    { "name": "MCloset",        "x": 45.50, "z": 18.50, "w": 14.25, "d":  6.83, "ceiling": 10.0, "type": "closet",      "printed": "9'-4\" x 6'-10\"", "note": "Modelled wider than printed to absorb the water closet shown east of it." },
+    { "name": "MBath",          "x": 45.50, "z": 25.33, "w": 14.25, "d":  8.67, "ceiling": 10.0, "type": "bathroom",    "printed": "9'-4\" x 8'-8\"", "note": "Freestanding tub under the north window, custom shower to the east, twin vanities." },
+
+    { "name": "Garage",         "x": 37.50, "z": -16.50, "w": 22.25, "d": 22.00, "ceiling": 10.0, "type": "garage",     "printed": "21'-6\" x 22'-0\"", "note": "Pull-down attic stair centred in the ceiling." },
+
+    { "name": "FrontPorch",     "x": 11.75, "z": -10.00, "w": 18.00, "d": 10.00, "ceiling": 10.0, "type": "porch",      "printed": "10'-4\" x 10'-0\" covered centre with 10'-0\" x 8'-0\" flanks", "exterior": true, "note": "Four square columns along the south edge." },
+    { "name": "RearPorch",      "x": 11.75, "z": 27.67, "w": 20.75, "d":  6.33, "ceiling":  9.0, "type": "porch",       "printed": "20'-8\" x 6'-0\"", "exterior": true, "note": "Recessed INTO the footprint between the bedroom wing and the master wing." }
+  ],
+
+  "_openingsComment": "Each door sits in the wall between roomA and roomB. 'offset' is measured in feet along that shared wall from its lowest-coordinate end (south end for north-south walls, west end for east-west walls). roomB \"EXTERIOR\" means it pierces an outside wall, and 'wall' then says which face. Open thresholds with no door are listed in HouseBuilder.OpenPairs, not here.",
+
+  "doors": [
+    { "id": "D_GreatFront",    "roomA": "GreatRoom", "roomB": "EXTERIOR", "wall": "S", "offset": 6.33, "width": 5.33, "kind": "french",   "swing": "double",    "sound": "front_door",  "note": "THE FRONT DOOR. Double leaf onto the front porch." },
+    { "id": "D_Rear",          "roomA": "Dining",    "roomB": "EXTERIOR", "wall": "N", "offset": 0.75, "width": 3.00, "kind": "glazed",   "swing": "out_right", "sound": "glass_door",  "note": "Onto the rear porch. Sits at the west end of the wall; W_Dining_N takes the east end. Both are on the same 9'-4\" wall, so their spans must not meet." },
+    { "id": "D_GarageOverhead","roomA": "Garage",    "roomB": "EXTERIOR", "wall": "S", "offset": 2.00, "width": 18.00,"kind": "overhead", "swing": "roll",      "sound": "garage_door" },
+
+    { "id": "D_Bed2",          "roomA": "Bedroom2",  "roomB": "Hall",     "offset": 0.17, "width": 2.67, "kind": "panel",  "swing": "in_left", "sound": "bedroom_door", "note": "Hinged LEFT so it opens away from the Great Room wall. Hung the other way its hinge sat an inch from that wall and the leaf ground into it." },
+    { "id": "D_Bed2Closet",    "roomA": "Bedroom2",  "roomB": "Bedroom2Closet", "offset": 1.00, "width": 6.00, "kind": "bifold", "swing": "bifold", "sound": "closet_door" },
+    { "id": "D_Bed3",          "roomA": "Bedroom3",  "roomB": "Hall",     "offset": 0.17, "width": 2.67, "kind": "panel",  "swing": "in_left", "sound": "bedroom_door", "note": "Hinged LEFT, away from the Great Room wall - same fault as D_Bed2." },
+    { "id": "D_Bath2",         "roomA": "Bath2",     "roomB": "Hall",     "offset": 1.50, "width": 2.50, "kind": "panel",  "swing": "in_left",  "sound": "bathroom_door" },
+    { "id": "D_Linen",         "roomA": "Linen",     "roomB": "Hall",     "offset": 0.50, "width": 2.00, "kind": "panel",  "swing": "out_left", "sound": "closet_door" },
+
+    { "id": "D_MBed",          "roomA": "MBedroom",  "roomB": "Entry",    "offset": 1.00, "width": 2.67, "kind": "panel",  "swing": "in_left",  "sound": "bedroom_door" },
+    { "id": "D_MBath",         "roomA": "MBedroom",  "roomB": "MBath",    "offset": 1.00, "width": 2.67, "kind": "panel",  "swing": "in_right", "sound": "bathroom_door" },
+    { "id": "D_MCloset",       "roomA": "MBedroom",  "roomB": "MCloset",  "offset": 1.00, "width": 2.67, "kind": "panel",  "swing": "in_left",  "sound": "closet_door" },
+
+    { "id": "D_Powder",        "roomA": "Powder",    "roomB": "Entry",    "offset": 0.25, "width": 2.33, "kind": "panel",  "swing": "in_right", "sound": "bathroom_door", "note": "Hinged RIGHT so it swings away from the mud hall wall three inches from the other hinge position." },
+    { "id": "D_Laundry",       "roomA": "Laundry",   "roomB": "MudHall",  "offset": 0.50, "width": 2.67, "kind": "panel",  "swing": "in_right", "sound": "bathroom_door" },
+    { "id": "D_Pantry",        "roomA": "Pantry",    "roomB": "Entry",    "offset": 0.60, "width": 3.00, "kind": "barn",   "swing": "slide",    "sound": "barn_door" },
+    { "id": "D_GarageHouse",   "roomA": "Garage",    "roomB": "Mudroom",  "offset": 2.00, "width": 2.83, "kind": "fire",   "swing": "in_left",  "sound": "heavy_door", "note": "Code-required 20-minute fire door between house and garage." }
+  ],
+
+  "windows": [
+    { "id": "W_Bed2_N",   "room": "Bedroom2",  "wall": "N", "offset": 3.50,  "width": 5.00, "operable": true },
+    { "id": "W_Bed2_W",   "room": "Bedroom2",  "wall": "W", "offset": 3.50,  "width": 4.00, "operable": true },
+    { "id": "W_Bed3_W",   "room": "Bedroom3",  "wall": "W", "offset": 4.00,  "width": 4.00, "operable": true },
+    { "id": "W_Bed3_S",   "room": "Bedroom3",  "wall": "S", "offset": 3.50,  "width": 5.00, "operable": true },
+    { "id": "W_Bath2_W",  "room": "Bath2",     "wall": "W", "offset": 2.00,  "width": 2.00, "operable": false, "sill": 4.50 },
+    { "id": "W_Great_S1", "room": "GreatRoom", "wall": "S", "offset": 0.75,  "width": 5.00, "operable": false, "note": "Large fixed pane - a key atmosphere window looking onto the front porch and the street." },
+    { "id": "W_Great_S2", "room": "GreatRoom", "wall": "S", "offset": 12.25, "width": 5.00, "operable": false },
+    { "id": "W_Dining_N", "room": "Dining",    "wall": "N", "offset": 4.50,  "width": 4.00, "operable": false, "note": "Looks onto the rear porch, east of the back door. Shares this 9'-4\" wall with D_Rear." },
+    { "id": "W_Kitchen_N","room": "Kitchen",   "wall": "N", "offset": 3.50,  "width": 4.00, "operable": true,  "sill": 3.75, "note": "Above the sink." },
+    { "id": "W_MBed_N",   "room": "MBedroom",  "wall": "N", "offset": 4.00,  "width": 6.00, "operable": true },
+    { "id": "W_MBath_N",  "room": "MBath",     "wall": "N", "offset": 2.50,  "width": 3.50, "operable": false, "sill": 4.00, "note": "Above the freestanding tub." },
+    { "id": "W_MCloset_E","room": "MCloset",   "wall": "E", "offset": 2.00,  "width": 2.50, "operable": false, "sill": 4.00 },
+    { "id": "W_Laundry_E","room": "Laundry",   "wall": "E", "offset": 2.00,  "width": 2.50, "operable": true,  "sill": 4.00 }
+  ],
+
+  "_roofsComment": "Gable roofs. 'ridgeAxis' is the direction the ridge RUNS: X = east-west (slopes face north and south), Z = north-south (slopes face east and west). 'pitch' is rise over 12 inches of run, the way roofers quote it - 6 means 6:12, about 26.6 degrees. 'base' is the height of the top of the wall the roof sits on, so it must match the ceiling height. The roof plane passes through the wall line at 'base' and continues outward and downward past it by 'overhang'. 'gableEnds' says which ends get a triangular wall: both, low, high, or none - an end buried inside another roof needs none.",
+
+  "roofs": [
+    { "id": "R_Main",       "x": -1.50, "z":   0.00, "w": 61.25, "d": 34.00, "ridgeAxis": "X", "pitch": 6.0, "overhang": 1.50, "base": 10.0, "gableEnds": "both", "note": "One gable over the whole conditioned body. Ridge runs east-west at z=17, apex 8'-6\" above the wall plate - deep enough for the pull-down attic stair the plan shows. Starts at x=-1.5 so the Bath 2 tub bump-out gets covered." },
+
+    { "id": "R_Garage",     "x": 37.50, "z": -16.50, "w": 22.25, "d": 27.63, "ridgeAxis": "Z", "pitch": 6.0, "overhang": 1.50, "base": 10.0, "gableEnds": "low",  "note": "Cross gable facing the street. CRITICAL: its north end must run to z=11.125, which is exactly where the main roof's south slope has risen to meet this ridge at 15'-7\". Stop it short and the ridge punches out through the main roof with an open end hanging in the air; run it past and it pokes out the far side. Solve 18.5 - (17 - z) x 0.5 = ridgeHeight whenever the pitch or base changes." },
+
+    { "id": "R_FrontPorch", "x": 11.75, "z": -10.00, "w": 18.00, "d": 19.00, "ridgeAxis": "Z", "pitch": 6.0, "overhang": 1.00, "base": 10.0, "gableEnds": "low",  "note": "Porch gable, projecting from the main roof. Runs north to z=9, where the main slope reaches this ridge at 14'-6\" - same tie-in rule as the garage. A gable rather than a shed roof because the plan calls for a 10'-0\" porch ceiling, which a shed roof tying in below the main eave cannot hold." }
+  ],
+
+  "_siteComment": "The ground the house sits on. 'fence' is a single polyline in feet: it leaves the house's west wall, runs out to the lot line, around the back garden and returns to the garage's east wall, which is how a real rear-yard fence is run. Paving slabs sit a hair above the grass so they do not z-fight.",
+
+  "site": {
+    "lotX": -32.0, "lotZ": -48.0, "lotW": 124.0, "lotD": 112.0,
+    "fenceHeight": 6.0,
+    "postSpacing": 8.0,
+    "fence": [
+      { "points": [
+        { "x":   0.00, "z": -16.50 },
+        { "x": -16.00, "z": -16.50 },
+        { "x": -16.00, "z":  50.00 },
+        { "x":  76.00, "z":  50.00 },
+        { "x":  76.00, "z": -16.50 },
+        { "x":  59.75, "z": -16.50 }
+      ] }
+    ],
+    "paving": [
+      { "name": "Street",    "x": -32.00, "z": -48.00, "w": 124.00, "d":  8.00, "material": "asphalt" },
+      { "name": "Sidewalk",  "x": -32.00, "z": -39.00, "w": 124.00, "d":  4.00, "material": "concrete" },
+      { "name": "Driveway",  "x":  37.50, "z": -40.00, "w":  22.25, "d": 23.50, "material": "concrete", "note": "Runs from the street up to the garage door at z=-16.5." },
+      { "name": "Walkway",   "x":  19.25, "z": -39.00, "w":   3.00, "d": 29.00, "material": "concrete", "note": "Front path from the sidewalk to the porch steps, centred on the front door." }
+    ]
+  },
+
+  "_validationTargets": {
+    "overallWidthFeet": 61.25,
+    "overallDepthFeet": 50.5,
+    "conditionedAreaSqFtApprox": 2050,
+    "frontDoor": "D_GreatFront"
+  }
+}

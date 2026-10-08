@@ -1,0 +1,135 @@
+{
+  "_comment": "Furniture and prop layout. Units: DECIMAL FEET, same frame as floorplan.json.",
+
+  "_placeProps": "Master switch. false places NO furniture or clutter at all - lights and switches are unaffected, since those are fixtures rather than fillers. The layout below is kept intact so turning this back to true restores every piece exactly where it was.",
+  "placeProps": false,
+
+
+  "_placement": "Each prop is positioned relative to a ROOM from floorplan.json, never in absolute world coordinates - so if a room moves, its contents move with it. 'placement' is one of: wall (backed against the named wall, facing into the room), floor (free-standing, positioned by fractional u/v across the room), ceiling (hung from the ceiling), counter (sitting on a worktop, so it is raised to counter height automatically).",
+
+  "_along": "For wall placement, 'along' is a FRACTION of that wall's length measured from its low-coordinate end - the south end of a north-south wall, the west end of an east-west wall. 0.5 is centred. For floor placement, 'u' runs west-to-east and 'v' south-to-north across the room, both 0..1.",
+
+  "_sizeFeet": "Real-world [width, depth, height] of the object when stood facing you. This drives two things: the stand-in box drawn before you supply a model, and the automatic scale correction applied to the model you do supply - its measured bounds are compared against this and scaled to match. Get this roughly right and badly-scaled assets fix themselves.",
+
+  "_asset": "A semantic key, NOT a filename. The asset library matches it against whatever is in Assets/_Project/Props/Incoming by keyword, and records the result in asset_map.json. Correct a bad match by editing that file, not this one.",
+
+  "props": [
+
+    { "id": "GR_Sofa",        "asset": "sofa",          "room": "GreatRoom", "placement": "wall", "wall": "N", "along": 0.34, "sizeFeet": [6.9, 3.1, 2.7], "note": "Backs onto the kitchen side, facing the TV on the south wall." },
+    { "id": "GR_Armchair",    "asset": "armchair",      "room": "GreatRoom", "placement": "floor", "u": 0.78, "v": 0.62, "yaw": -140, "sizeFeet": [3.1, 3.2, 2.8] },
+    { "id": "GR_CoffeeTable", "asset": "coffee_table",  "room": "GreatRoom", "placement": "floor", "u": 0.38, "v": 0.47, "sizeFeet": [3.8, 2.1, 1.4] },
+    { "id": "GR_Rug",         "asset": "rug",           "room": "GreatRoom", "placement": "floor", "u": 0.38, "v": 0.47, "sizeFeet": [8.0, 5.5, 0.05] },
+    { "id": "GR_TvUnit",      "asset": "tv_stand",      "room": "GreatRoom", "placement": "wall", "wall": "S", "along": 0.33, "sizeFeet": [5.0, 1.4, 1.8], "note": "Between the two front windows, below the glazing." },
+    { "id": "GR_Tv",          "asset": "television",    "room": "GreatRoom", "placement": "wall", "wall": "S", "along": 0.33, "height": 1.9, "sizeFeet": [4.4, 0.3, 2.5] },
+    { "id": "GR_FloorLamp",   "asset": "floor_lamp",    "room": "GreatRoom", "placement": "floor", "u": 0.92, "v": 0.85, "sizeFeet": [1.2, 1.2, 5.2] },
+    { "id": "GR_Bookshelf",   "asset": "bookshelf",     "room": "GreatRoom", "placement": "wall", "wall": "W", "along": 0.72, "sizeFeet": [3.0, 1.1, 6.0] },
+
+    { "id": "DIN_Table",      "asset": "dining_table",  "room": "Dining", "placement": "floor", "u": 0.5, "v": 0.45, "sizeFeet": [5.8, 3.2, 2.5] },
+    { "id": "DIN_Chair_1",    "asset": "dining_chair",  "room": "Dining", "placement": "floor", "u": 0.28, "v": 0.45, "yaw": 90,  "sizeFeet": [1.6, 1.7, 3.0] },
+    { "id": "DIN_Chair_2",    "asset": "dining_chair",  "room": "Dining", "placement": "floor", "u": 0.72, "v": 0.45, "yaw": -90, "sizeFeet": [1.6, 1.7, 3.0] },
+    { "id": "DIN_Chair_3",    "asset": "dining_chair",  "room": "Dining", "placement": "floor", "u": 0.5,  "v": 0.68, "yaw": 180, "sizeFeet": [1.6, 1.7, 3.0] },
+    { "id": "DIN_Chair_4",    "asset": "dining_chair",  "room": "Dining", "placement": "floor", "u": 0.5,  "v": 0.22, "yaw": 0,   "sizeFeet": [1.6, 1.7, 3.0] },
+    { "id": "DIN_Pendant",    "asset": "pendant_light", "room": "Dining", "placement": "ceiling", "u": 0.5, "v": 0.45, "sizeFeet": [1.6, 1.6, 2.2] },
+
+    { "id": "KIT_Island",     "asset": "kitchen_island","room": "Kitchen", "placement": "floor", "u": 0.42, "v": 0.46, "sizeFeet": [7.0, 3.3, 3.0], "note": "The plan marks a level eating bar on this." },
+    { "id": "KIT_Counter_N",  "asset": "counter_run",   "room": "Kitchen", "placement": "wall", "wall": "N", "along": 0.5, "sizeFeet": [10.0, 2.1, 3.0], "note": "Sink run along the north wall." },
+    { "id": "KIT_Sink",       "asset": "kitchen_sink",  "room": "Kitchen", "placement": "wall", "wall": "N", "along": 0.46, "height": 2.9, "sizeFeet": [2.8, 1.8, 0.8], "note": "Under W_Kitchen_N, exactly as the plan shows." },
+    { "id": "KIT_Dishwasher", "asset": "dishwasher",    "room": "Kitchen", "placement": "wall", "wall": "N", "along": 0.72, "sizeFeet": [2.0, 2.1, 2.9], "note": "The plan labels DW to the right of the sink." },
+    { "id": "KIT_Range",      "asset": "range_cooker",  "room": "Kitchen", "placement": "wall", "wall": "E", "along": 0.52, "sizeFeet": [2.6, 2.3, 3.0], "note": "Plan marks RANGE W/ VENT on this wall." },
+    { "id": "KIT_RangeHood",  "asset": "range_hood",    "room": "Kitchen", "placement": "wall", "wall": "E", "along": 0.52, "height": 5.0, "sizeFeet": [2.6, 1.8, 2.0] },
+    { "id": "KIT_Fridge",     "asset": "refrigerator",  "room": "Kitchen", "placement": "wall", "wall": "E", "along": 0.17, "sizeFeet": [3.0, 2.6, 5.9] },
+    { "id": "KIT_Microwave",  "asset": "microwave",     "room": "Kitchen", "placement": "counter", "u": 0.70, "v": 0.46, "sizeFeet": [1.8, 1.3, 1.1] },
+    { "id": "KIT_Toaster",    "asset": "toaster",       "room": "Kitchen", "placement": "counter", "u": 0.22, "v": 0.88, "sizeFeet": [1.0, 0.6, 0.8] },
+    { "id": "KIT_DishRack",   "asset": "dish_rack",     "room": "Kitchen", "placement": "counter", "u": 0.60, "v": 0.88, "sizeFeet": [1.4, 1.0, 0.7] },
+    { "id": "KIT_Bin",        "asset": "rubbish_bin",   "room": "Kitchen", "placement": "floor", "u": 0.88, "v": 0.80, "sizeFeet": [1.3, 1.3, 2.7] },
+
+    { "id": "PAN_Shelves_W",  "asset": "pantry_shelf",  "room": "Pantry", "placement": "wall", "wall": "W", "along": 0.5, "sizeFeet": [6.5, 0.83, 7.0], "note": "Plan specifies 10 inch deep shelves on both long walls." },
+    { "id": "PAN_Shelves_E",  "asset": "pantry_shelf",  "room": "Pantry", "placement": "wall", "wall": "E", "along": 0.5, "sizeFeet": [6.5, 0.83, 7.0] },
+    { "id": "PAN_Counter",    "asset": "counter_run",   "room": "Pantry", "placement": "wall", "wall": "S", "along": 0.5, "sizeFeet": [6.0, 2.0, 3.0], "note": "Plan labels COUNTER on the south side." },
+
+    { "id": "MBR_Bed",        "asset": "bed_king",      "room": "MBedroom", "placement": "wall", "wall": "W", "along": 0.52, "sizeFeet": [6.5, 7.0, 3.8] },
+    { "id": "MBR_Night_L",    "asset": "nightstand",    "room": "MBedroom", "placement": "wall", "wall": "W", "along": 0.27, "sizeFeet": [1.8, 1.5, 2.1] },
+    { "id": "MBR_Night_R",    "asset": "nightstand",    "room": "MBedroom", "placement": "wall", "wall": "W", "along": 0.77, "sizeFeet": [1.8, 1.5, 2.1] },
+    { "id": "MBR_Lamp_L",     "asset": "table_lamp",    "room": "MBedroom", "placement": "counter", "u": 0.06, "v": 0.27, "height": 2.1, "sizeFeet": [1.0, 1.0, 1.6] },
+    { "id": "MBR_Lamp_R",     "asset": "table_lamp",    "room": "MBedroom", "placement": "counter", "u": 0.06, "v": 0.77, "height": 2.1, "sizeFeet": [1.0, 1.0, 1.6] },
+    { "id": "MBR_Dresser",    "asset": "dresser",       "room": "MBedroom", "placement": "wall", "wall": "E", "along": 0.30, "sizeFeet": [5.0, 1.7, 2.8] },
+
+    { "id": "MBA_Tub",        "asset": "bathtub",       "room": "MBath", "placement": "wall", "wall": "N", "along": 0.22, "sizeFeet": [5.6, 2.7, 2.0], "note": "Plan: FREE STANDING TUB under the north window." },
+    { "id": "MBA_Vanity",     "asset": "vanity_double", "room": "MBath", "placement": "wall", "wall": "S", "along": 0.35, "sizeFeet": [6.5, 2.0, 3.0], "note": "Plan shows twin basins with LINEN between." },
+    { "id": "MBA_Shower",     "asset": "shower_enclosure", "room": "MBath", "placement": "wall", "wall": "E", "along": 0.30, "sizeFeet": [4.0, 3.5, 7.0], "note": "Plan: CUSTOM SHWR at the east end." },
+    { "id": "MBA_Toilet",     "asset": "toilet",        "room": "MBath", "placement": "wall", "wall": "E", "along": 0.78, "sizeFeet": [1.6, 2.4, 2.6] },
+
+    { "id": "MCL_Rail_N",     "asset": "wardrobe_rail", "room": "MCloset", "placement": "wall", "wall": "N", "along": 0.5, "sizeFeet": [12.0, 2.0, 7.0] },
+    { "id": "MCL_Rail_S",     "asset": "wardrobe_rail", "room": "MCloset", "placement": "wall", "wall": "S", "along": 0.5, "sizeFeet": [12.0, 2.0, 7.0] },
+
+    { "id": "BR2_Bed",        "asset": "bed_double",    "room": "Bedroom2", "placement": "wall", "wall": "E", "along": 0.55, "sizeFeet": [4.8, 6.6, 3.5] },
+    { "id": "BR2_Night",      "asset": "nightstand",    "room": "Bedroom2", "placement": "wall", "wall": "E", "along": 0.17, "sizeFeet": [1.8, 1.5, 2.1] },
+    { "id": "BR2_Desk",       "asset": "desk",          "room": "Bedroom2", "placement": "wall", "wall": "S", "along": 0.72, "sizeFeet": [4.0, 2.0, 2.5] },
+    { "id": "BR2_Chair",      "asset": "desk_chair",    "room": "Bedroom2", "placement": "floor", "u": 0.72, "v": 0.26, "yaw": 180, "sizeFeet": [1.9, 1.9, 3.3] },
+
+    { "id": "BR3_Bed",        "asset": "bed_double",    "room": "Bedroom3", "placement": "wall", "wall": "E", "along": 0.48, "sizeFeet": [4.8, 6.6, 3.5] },
+    { "id": "BR3_Night",      "asset": "nightstand",    "room": "Bedroom3", "placement": "wall", "wall": "E", "along": 0.84, "sizeFeet": [1.8, 1.5, 2.1] },
+    { "id": "BR3_Dresser",    "asset": "dresser",       "room": "Bedroom3", "placement": "wall", "wall": "N", "along": 0.30, "sizeFeet": [4.0, 1.7, 2.8] },
+
+    { "id": "BA2_Tub",        "asset": "bathtub_shower","room": "Bath2", "placement": "wall", "wall": "W", "along": 0.5, "sizeFeet": [5.0, 2.6, 6.0], "note": "Plan: TUB/SHWR in the west bump-out." },
+    { "id": "BA2_Vanity",     "asset": "vanity_single", "room": "Bath2", "placement": "wall", "wall": "N", "along": 0.72, "sizeFeet": [3.0, 1.8, 3.0] },
+    { "id": "BA2_Toilet",     "asset": "toilet",        "room": "Bath2", "placement": "wall", "wall": "N", "along": 0.42, "sizeFeet": [1.6, 2.4, 2.6] },
+
+    { "id": "PWD_Toilet",     "asset": "toilet",        "room": "Powder", "placement": "wall", "wall": "W", "along": 0.5, "sizeFeet": [1.6, 2.4, 2.6] },
+    { "id": "PWD_Basin",      "asset": "vanity_single", "room": "Powder", "placement": "wall", "wall": "E", "along": 0.5, "sizeFeet": [2.2, 1.6, 3.0] },
+
+    { "id": "LDY_Washer",     "asset": "washing_machine","room": "Laundry", "placement": "wall", "wall": "N", "along": 0.28, "sizeFeet": [2.3, 2.4, 3.0] },
+    { "id": "LDY_Dryer",      "asset": "tumble_dryer",  "room": "Laundry", "placement": "wall", "wall": "N", "along": 0.50, "sizeFeet": [2.3, 2.4, 3.0], "note": "Plan shows W and D side by side with a counter over." },
+    { "id": "LDY_Counter",    "asset": "counter_run",   "room": "Laundry", "placement": "wall", "wall": "E", "along": 0.5, "sizeFeet": [5.0, 2.0, 3.0] },
+    { "id": "LDY_Basket",     "asset": "laundry_basket","room": "Laundry", "placement": "floor", "u": 0.80, "v": 0.30, "sizeFeet": [1.8, 1.4, 2.0] },
+
+    { "id": "MUD_Lockers",    "asset": "lockers",       "room": "MudHall", "placement": "wall", "wall": "N", "along": 0.5, "sizeFeet": [6.0, 1.6, 6.5], "note": "Plan labels LOCKERS here." },
+    { "id": "MUD_Bench",      "asset": "bench",         "room": "Mudroom", "placement": "wall", "wall": "E", "along": 0.5, "sizeFeet": [4.0, 1.5, 1.6] },
+    { "id": "MUD_Shoes",      "asset": "shoes",         "room": "Mudroom", "placement": "floor", "u": 0.78, "v": 0.30, "sizeFeet": [1.6, 1.0, 0.5] },
+
+    { "id": "ENT_Console",    "asset": "console_table", "room": "Entry", "placement": "wall", "wall": "W", "along": 0.5, "sizeFeet": [3.5, 1.3, 2.6] },
+    { "id": "ENT_Mail",       "asset": "mail_pile",     "room": "Entry", "placement": "counter", "u": 0.08, "v": 0.5, "height": 2.6, "sizeFeet": [0.9, 0.7, 0.2] },
+
+    { "id": "GAR_Car",        "asset": "car",           "room": "Garage", "placement": "floor", "u": 0.26, "v": 0.46, "sizeFeet": [6.2, 15.5, 5.0] },
+    { "id": "GAR_Shelving",   "asset": "garage_shelving","room": "Garage", "placement": "wall", "wall": "N", "along": 0.30, "sizeFeet": [6.0, 1.8, 6.5] },
+    { "id": "GAR_Workbench",  "asset": "workbench",     "room": "Garage", "placement": "wall", "wall": "E", "along": 0.70, "sizeFeet": [6.0, 2.3, 3.0] },
+    { "id": "GAR_Bins",       "asset": "wheelie_bin",   "room": "Garage", "placement": "wall", "wall": "W", "along": 0.80, "sizeFeet": [2.0, 2.4, 3.6] },
+    { "id": "GAR_Bike",       "asset": "bicycle",       "room": "Garage", "placement": "wall", "wall": "W", "along": 0.45, "sizeFeet": [5.8, 1.5, 3.4] },
+    { "id": "GAR_Boxes",      "asset": "cardboard_boxes","room": "Garage", "placement": "floor", "u": 0.88, "v": 0.14, "sizeFeet": [3.0, 2.5, 3.5] },
+
+    { "id": "FP_Chair_1",     "asset": "outdoor_chair", "room": "FrontPorch", "placement": "floor", "u": 0.20, "v": 0.55, "yaw": 100, "sizeFeet": [2.3, 2.3, 3.0] },
+    { "id": "FP_Doormat",     "asset": "doormat",       "room": "FrontPorch", "placement": "floor", "u": 0.5, "v": 0.88, "sizeFeet": [2.8, 1.6, 0.05] },
+    { "id": "RP_Table",       "asset": "outdoor_table", "room": "RearPorch", "placement": "floor", "u": 0.62, "v": 0.5, "sizeFeet": [3.6, 3.6, 2.5] },
+
+    { "_section": "Added to match the downloaded models. u and v are NOT clamped to 0-1, so values outside that range place an object on the room's coordinate grid but outside its walls - which is how the garden and street items below are positioned without needing a room of their own." },
+
+    { "id": "GR_Clock",       "asset": "grandfather_clock", "room": "GreatRoom", "placement": "wall", "wall": "W", "along": 0.32, "sizeFeet": [2.0, 1.2, 6.6], "note": "A ticking clock in the main room gives the house a pulse - and gives silence something to stop." },
+    { "id": "GR_Picture",     "asset": "picture_frame", "room": "GreatRoom", "placement": "wall", "wall": "N", "along": 0.70, "height": 4.4, "sizeFeet": [2.0, 0.15, 2.6] },
+    { "id": "HALL_Picture",   "asset": "picture_frame", "room": "Hall",      "placement": "wall", "wall": "W", "along": 0.60, "height": 4.4, "sizeFeet": [1.6, 0.15, 2.1] },
+    { "id": "MBR_Picture",    "asset": "picture_frame", "room": "MBedroom",  "placement": "wall", "wall": "S", "along": 0.60, "height": 4.4, "sizeFeet": [2.0, 0.15, 2.6] },
+
+    { "id": "MUD_Broom",      "asset": "broom",         "room": "MudHall",  "placement": "wall", "wall": "E", "along": 0.5, "sizeFeet": [0.9, 0.9, 4.7], "note": "The plan labels BROOM in this corner." },
+    { "id": "GAR_Ladder",     "asset": "ladder",        "room": "Garage",   "placement": "wall", "wall": "E", "along": 0.30, "sizeFeet": [1.7, 0.9, 6.6] },
+    { "id": "GAR_Trashbag_1", "asset": "bin_bag",       "room": "Garage",   "placement": "floor", "u": 0.84, "v": 0.26, "sizeFeet": [2.0, 2.0, 2.6] },
+    { "id": "GAR_Trashbag_2", "asset": "bin_bag",       "room": "Garage",   "placement": "floor", "u": 0.90, "v": 0.33, "yaw": 40, "sizeFeet": [2.0, 2.0, 2.6] },
+
+    { "id": "KIT_Board",      "asset": "cutting_board", "room": "Kitchen",  "placement": "counter", "u": 0.40, "v": 0.88, "sizeFeet": [1.4, 1.0, 0.12] },
+    { "id": "KIT_Spoon",      "asset": "wooden_spoon",  "room": "Kitchen",  "placement": "counter", "u": 0.52, "v": 0.86, "yaw": 25, "sizeFeet": [1.0, 0.25, 0.1] },
+
+    { "id": "EXT_Camera",     "asset": "security_camera", "room": "Garage", "placement": "wall", "wall": "S", "along": 0.88, "height": 8.8, "sizeFeet": [0.5, 0.9, 0.5], "note": "Over the garage door looking down the drive. Something the player can check - and later, something that shows them what they would rather not see." },
+
+    { "id": "EXT_StreetLamp_1","asset": "street_lamp",  "room": "FrontPorch", "placement": "floor", "u": -0.35, "v": -2.1, "sizeFeet": [1.5, 1.5, 15.0] },
+    { "id": "EXT_StreetLamp_2","asset": "street_lamp",  "room": "FrontPorch", "placement": "floor", "u":  1.60, "v": -2.1, "sizeFeet": [1.5, 1.5, 15.0] },
+
+    { "id": "GDN_Tree_1",     "asset": "fir_tree",      "room": "RearPorch", "placement": "floor", "u": -0.30, "v":  2.4, "sizeFeet": [12.0, 12.0, 26.0], "note": "Heavy 4K model - two is plenty until Stage 10 swaps in LODs." },
+    { "id": "GDN_Tree_2",     "asset": "fir_tree",      "room": "RearPorch", "placement": "floor", "u":  1.20, "v":  2.0, "sizeFeet": [11.0, 11.0, 22.0] },
+
+    { "id": "GDN_Fern_1",     "asset": "fern",          "room": "FrontPorch", "placement": "floor", "u": -0.18, "v": 0.70, "sizeFeet": [2.6, 2.6, 2.2] },
+    { "id": "GDN_Fern_2",     "asset": "fern",          "room": "FrontPorch", "placement": "floor", "u":  1.14, "v": 0.60, "yaw": 60, "sizeFeet": [2.4, 2.4, 2.0] },
+    { "id": "GDN_Nettle_1",   "asset": "nettle",        "room": "RearPorch",  "placement": "floor", "u": -0.12, "v": 1.30, "sizeFeet": [2.0, 2.0, 2.4] },
+    { "id": "GDN_Nettle_2",   "asset": "nettle",        "room": "RearPorch",  "placement": "floor", "u":  1.08, "v": 1.45, "yaw": 110, "sizeFeet": [2.0, 2.0, 2.4] },
+    { "id": "GDN_Moss_1",     "asset": "moss",          "room": "FrontPorch", "placement": "floor", "u": -0.25, "v": 0.20, "sizeFeet": [3.0, 3.0, 0.3] },
+
+    { "id": "ENT_Cabinet",    "asset": "vintage_cabinet", "room": "Entry",   "placement": "wall", "wall": "N", "along": 0.30, "sizeFeet": [3.6, 1.6, 5.4] }
+  ]
+}

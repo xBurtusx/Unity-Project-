@@ -1,0 +1,15 @@
+﻿Drop downloaded models in this folder - any structure, any subfolders.
+
+Supported: .fbx .obj .blend .gltf .glb, and .prefab
+
+Then run:  Horror House > Stage 6 - Place Furniture and Lights
+
+Matching is by FILENAME keyword, so a file called sofa_03.fbx will be found for
+the sofa slot. If something matches wrongly, fix it once in
+Assets/_Project/Data/asset_map.json - that file is never overwritten by the
+automatic matcher once you have set a path by hand.
+
+asset_map.json also holds, per asset:
+  yawCorrection    - degrees to add if the model faces the wrong way
+  scaleMultiplier  - leave 0 to let it scale automatically from the real-world
+                     size declared in props.json

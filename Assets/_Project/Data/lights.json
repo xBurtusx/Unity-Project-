@@ -1,0 +1,69 @@
+{
+  "_comment": "Light fixtures and their switches. Units: DECIMAL FEET, same frame as floorplan.json.",
+
+  "_why": "Lighting is defined as data for the same reason the walls are: horror events need to address lights by name and by group ('turn off everything downstairs', 'the porch light is on again'), and that is only possible if every fixture has a stable identity rather than being a hand-placed object someone renamed.",
+
+  "_kelvin": "Colour temperature in kelvin. Domestic bulbs are 2400-3000K and read as warm and yellow; 4000K+ reads as institutional and is deliberately reserved for the garage and laundry, where it feels colder and less welcoming than the rest of the house.",
+
+  "_intensity": "Unity light intensity. Values here are tuned for a dark scene - the house should be lit in pools with real darkness between them, not evenly flooded. Raising these to make the house readable is almost always the wrong fix; raise the Moonlight or the grade's post-exposure instead.",
+
+  "_groups": "A switch toggles a GROUP, not a fixture, so one switch can control several lights. Group names are free text; reuse one across rooms to gang them together.",
+
+  "_oneFittingPerRoom": "Cut from 30 fittings to 21 after an audit. An ordinary room has ONE ceiling light, not two or three - a second fitting reads as a shop or an office, and each one also costs a real-time shadow map every frame it is lit. Extras now have to justify themselves: the pendant over the dining table and the two exterior lights do, a second light in the middle of the kitchen does not.",
+
+  "fixtures": [
+    { "id": "L_GreatRoom_1",  "room": "GreatRoom", "type": "ceiling", "u": 0.50, "v": 0.50, "kelvin": 2700, "intensity": 1.6, "range": 22, "group": "GreatRoom", "startsOn": false, "note": "One fitting, centred. Was two." },
+
+    { "id": "L_Dining",       "room": "Dining",   "type": "pendant", "u": 0.50, "v": 0.45, "height": 6.2, "kelvin": 2600, "intensity": 1.8, "range": 16, "group": "Dining", "startsOn": false, "note": "Hangs low over the table, as a real pendant does." },
+
+    { "id": "L_Kitchen_1",    "room": "Kitchen",  "type": "ceiling", "u": 0.50, "v": 0.55, "kelvin": 3000, "intensity": 1.8, "range": 18, "group": "Kitchen", "startsOn": false, "note": "One fitting, centred. Was three." },
+
+    { "id": "L_Hall",         "room": "Hall",     "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 2700, "intensity": 1.2, "range": 14, "group": "Hall", "startsOn": false },
+    { "id": "L_Entry",        "room": "Entry",    "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 2700, "intensity": 1.4, "range": 16, "group": "Entry", "startsOn": false, "note": "Also serves HallToEntry, which no longer has its own fitting." },
+    { "id": "L_MudHall",      "room": "MudHall",  "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 3000, "intensity": 1.2, "range": 12, "group": "MudHall", "startsOn": false },
+    { "id": "L_Mudroom",      "room": "Mudroom",  "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 3000, "intensity": 1.2, "range": 13, "group": "Mudroom", "startsOn": false },
+    { "id": "L_Pantry",       "room": "Pantry",   "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 3000, "intensity": 1.0, "range": 10, "group": "Pantry", "startsOn": false },
+    { "id": "L_BasementStair","room": "BasementStair", "type": "ceiling", "u": 0.3, "v": 0.5, "kelvin": 2700, "intensity": 1.1, "range": 14, "group": "BasementStair", "startsOn": false, "note": "A stair lit from the top only, so the bottom stays dark. Deliberate." },
+
+    { "id": "L_MBedroom_1",   "room": "MBedroom", "type": "ceiling", "u": 0.5,  "v": 0.50, "kelvin": 2700, "intensity": 1.5, "range": 18, "group": "MBedroom", "startsOn": false },
+    { "id": "L_MBath",        "room": "MBath",    "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 3000, "intensity": 1.5, "range": 15, "group": "MBath", "startsOn": false },
+    { "id": "L_MCloset",      "room": "MCloset",  "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 2700, "intensity": 1.1, "range": 13, "group": "MCloset", "startsOn": false },
+
+    { "id": "L_Bedroom2",     "room": "Bedroom2", "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 2700, "intensity": 1.4, "range": 16, "group": "Bedroom2", "startsOn": false },
+    { "id": "L_Bedroom3",     "room": "Bedroom3", "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 2700, "intensity": 1.4, "range": 16, "group": "Bedroom3", "startsOn": false },
+    { "id": "L_Bath2",        "room": "Bath2",    "type": "ceiling", "u": 0.55, "v": 0.5, "kelvin": 3000, "intensity": 1.3, "range": 12, "group": "Bath2", "startsOn": false },
+    { "id": "L_Powder",       "room": "Powder",   "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 3000, "intensity": 1.0, "range": 9,  "group": "Powder", "startsOn": false },
+    { "id": "L_Laundry",      "room": "Laundry",  "type": "ceiling", "u": 0.5, "v": 0.5,  "kelvin": 4000, "intensity": 1.5, "range": 14, "group": "Laundry", "startsOn": false, "note": "Cooler and less welcoming than the living space." },
+
+    { "id": "L_Garage_1",     "room": "Garage",   "type": "strip",   "u": 0.5, "v": 0.50, "kelvin": 4200, "intensity": 1.8, "range": 26, "group": "Garage", "startsOn": false, "note": "One strip, centred. Was two, and the second was buried in geometry." },
+
+    { "id": "L_FrontPorch",   "room": "FrontPorch", "type": "porch", "u": 0.5,  "v": 0.85, "height": 7.5, "kelvin": 2400, "intensity": 1.6, "range": 18, "group": "FrontPorch", "startsOn": true, "note": "Starts ON. A porch light left burning is ordinary - which is what makes it useful later, when it is not." },
+    { "id": "L_RearPorch",    "room": "RearPorch",  "type": "porch", "u": 0.22, "v": 0.30, "height": 7.5, "kelvin": 2400, "intensity": 1.3, "range": 15, "group": "RearPorch", "startsOn": false, "note": "Moved clear of the house wall it was embedded in." },
+    { "id": "L_GarageExt",    "room": "Garage",     "type": "porch", "u": 0.5,  "v": -0.055, "height": 8.5, "kelvin": 2400, "intensity": 1.4, "range": 16, "group": "GarageExterior", "startsOn": false, "note": "Moved OUTSIDE the garage's south wall - it was buried inside it. Lights the driveway." }
+  ],
+
+  "_switchesComment": "Switches sit on a wall inside the room at 4'-0\", the standard height. 'controls' is a group name from above. Stage 7's interaction system will drive these; for now they can be toggled from code.",
+
+  "_switchPlacement": "Every one of these was re-derived from where the DOOR actually is, after an audit found five switches hanging in open thresholds with no wall behind them and four more sitting inside their own doorway. A switch belongs on solid wall, beside the door you enter by, on the latch side so the opening door does not sweep across it. Check both when moving one: is there a wall here, and is it clear of the door swing?",
+
+  "switches": [
+    { "id": "SW_GreatRoom", "room": "GreatRoom", "wall": "W", "along": 0.69, "controls": "GreatRoom", "note": "Beside the threshold from the hall. Was mid-wall, 3 m from any door." },
+    { "id": "SW_Kitchen",   "room": "Kitchen",   "wall": "E", "along": 0.07, "controls": "Kitchen", "note": "Moved off the south side entirely - that is the OPEN threshold to the Great Room, so there was no wall to mount on." },
+    { "id": "SW_Dining",    "room": "Dining",    "wall": "W", "along": 0.85, "controls": "Dining" },
+    { "id": "SW_Hall",      "room": "Hall",      "wall": "E", "along": 0.50, "controls": "Hall" },
+    { "id": "SW_Entry",     "room": "Entry",     "wall": "W", "along": 0.79, "controls": "Entry" },
+    { "id": "SW_Porch",     "room": "Entry",     "wall": "W", "along": 0.70, "controls": "FrontPorch", "note": "Next to the entry switch, as a porch light switch normally is." },
+    { "id": "SW_MBedroom",  "room": "MBedroom",  "wall": "S", "along": 0.34, "controls": "MBedroom", "note": "Latch side of the bedroom door. Was inside the opening." },
+    { "id": "SW_MBath",     "room": "MBath",     "wall": "W", "along": 0.49, "controls": "MBath", "note": "Past the door swing. Was inside the opening." },
+    { "id": "SW_MCloset",   "room": "MCloset",   "wall": "W", "along": 0.63, "controls": "MCloset", "note": "Past the door swing. Was inside the opening." },
+    { "id": "SW_Bedroom2",  "room": "Bedroom2",  "wall": "S", "along": 0.73, "controls": "Bedroom2", "note": "On the closet wall beside the door. Was inside the opening." },
+    { "id": "SW_Bedroom3",  "room": "Bedroom3",  "wall": "N", "along": 0.73, "controls": "Bedroom3", "note": "On the linen wall beside the door. Was inside the opening." },
+    { "id": "SW_Bath2",     "room": "Bath2",     "wall": "E", "along": 0.80, "controls": "Bath2" },
+    { "id": "SW_Powder",    "room": "Powder",    "wall": "S", "along": 0.10, "controls": "Powder", "note": "Moved off the west wall, which is almost entirely doorway." },
+    { "id": "SW_Laundry",   "room": "Laundry",   "wall": "W", "along": 0.50, "controls": "Laundry", "note": "Moved off the south side - open to the Mudroom, no wall there." },
+    { "id": "SW_Garage",    "room": "Garage",    "wall": "N", "along": 0.71, "controls": "Garage", "note": "Beside the door into the house, where you reach as you step in." },
+    { "id": "SW_Pantry",    "room": "Pantry",    "wall": "N", "along": 0.39, "controls": "Pantry", "note": "Beside the barn door." },
+    { "id": "SW_Mudroom",   "room": "Mudroom",   "wall": "S", "along": 0.46, "controls": "Mudroom", "note": "Beside the garage door. Was on the north side, which is open to the Laundry." },
+    { "id": "SW_Stair",     "room": "BasementStair", "wall": "N", "along": 0.45, "controls": "BasementStair", "note": "At the head of the stair, on the mud hall wall. Was over the open threshold to the Entry." }
+  ]
+}

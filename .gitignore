@@ -1,0 +1,74 @@
+# ---- Unity generated folders ----
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# ---- Raw art source (2 GB of .blend / 4K PNG / EXR) ----
+# Kept out of git deliberately: too large for GitHub without a paid LFS pack.
+# The imported results live in Assets/ and are versioned.
+AssetSource/
+
+# ---- Asset Store / Plastic ----
+/[Aa]ssets/AssetStoreTools*
+/[Aa]ssets/Plugins/Editor/JetBrains*
+/[Aa]ssets/Plugins/PlasticSCM*
+
+# ---- Plastic SCM workspace metadata (git is the source of truth now) ----
+.plastic/
+
+# ---- Private files ----
+*.private
+*.private.meta
+*.private.*
+
+# ---- IDE / editor ----
+.vs/
+.vscode/
+.idea/
+.gradle/
+.consulo/
+ExportedObj/
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# ---- Builds / packages ----
+*.apk
+*.aab
+*.app
+*.unitypackage
+*.unitypackage.meta
+crashlytics-build.properties
+sysinfo.txt
+
+# ---- Addressables ----
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+/[Aa]ssets/StreamingAssets/aa.meta
+/[Aa]ssets/StreamingAssets/aa/*
+
+# ---- OS cruft ----
+.DS_Store*
+Thumbs.db
+Desktop.ini
+~UnityDirMonSyncFile~*
