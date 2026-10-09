@@ -17,15 +17,18 @@ namespace HorrorHouse.EditorTools
         static readonly Vector3 SpawnFeet = new Vector3(20.75f, 0.2f, -14.0f);
 
         [MenuItem("Horror House/Stage 3 - Create Player", priority = 20)]
-        public static void Create()
+        public static void Create() => CreateAt(new Vector3(SpawnFeet.x * F, SpawnFeet.y * F, SpawnFeet.z * F), 0f);
+
+        /// <summary>Creates the player standing at a world position, facing the given yaw.</summary>
+        public static void CreateAt(Vector3 worldPos, float yaw)
         {
             var existing = GameObject.Find("Player");
             if (existing != null) Undo.DestroyObjectImmediate(existing);
 
             var player = new GameObject("Player");
             Undo.RegisterCreatedObjectUndo(player, "Create Player");
-            player.transform.position = new Vector3(SpawnFeet.x * F, SpawnFeet.y * F, SpawnFeet.z * F);
-            player.transform.rotation = Quaternion.Euler(0f, 0f, 0f);   // facing north, towards the house
+            player.transform.position = worldPos;
+            player.transform.rotation = Quaternion.Euler(0f, yaw, 0f);
 
             var cc = player.AddComponent<CharacterController>();
             cc.height = 1.80f;

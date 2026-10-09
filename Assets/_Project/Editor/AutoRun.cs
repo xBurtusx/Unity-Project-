@@ -50,6 +50,14 @@ namespace HorrorHouse.EditorTools
             if (request.Contains("textures")) TextureFactory.Generate();
             if (request.Contains("atmosphere")) AtmosphereSetup.Setup();
             if (request.Contains("interior")) InteriorPlacer.Place();
+            if (request.Contains("grass")) GrassSetup.Setup();
+            if (request.Contains("shotsonly")) HouseScene.ShotsOnly();
+            if (request.Contains("bake")) HouseLighting.Bake();
+            if (request.Contains("inspectrails")) RailsInspect.Run();
+            if (request.Contains("newscene")) HouseScene.Build();
+            if (request.Contains("inspecthouse")) HouseInspect.Run();
+            if (request.Contains("snaphouse")) HouseSnap.Run();
+            if (request.Contains("neighbourhood")) NeighbourhoodBuilder.Build();
             if (request.Contains("doortest")) InteriorAudit.TestDoors();
             if (request.Contains("audit")) InteriorAudit.Run();
             if (request.Contains("diagnose")) SceneDiagnostics.Report();
@@ -59,7 +67,16 @@ namespace HorrorHouse.EditorTools
             else if (request.Contains("front")) SceneViewShortcuts.Front();
             else if (request.Contains("rear")) SceneViewShortcuts.Rear();
 
-            try { EditorSceneManager.SaveOpenScenes(); }
+            // Only scenes that already have a file: SaveOpenScenes on an Untitled scene pops a
+            // modal Save dialog and stalls the Editor.
+            try
+            {
+                for (int i = 0; i < EditorSceneManager.sceneCount; i++)
+                {
+                    var sc = EditorSceneManager.GetSceneAt(i);
+                    if (sc.isLoaded && !string.IsNullOrEmpty(sc.path)) EditorSceneManager.SaveScene(sc);
+                }
+            }
             catch (System.Exception e) { Debug.LogWarning($"[AutoRun] Scene save failed: {e.Message}"); }
 
             // Receipt of what actually ran, so a request can be confirmed from outside the Editor
@@ -80,3 +97,72 @@ namespace HorrorHouse.EditorTools
         }
     }
 }
+// touch 1791496647
+// t 1791496994
+// t2 1791497025
+// t3 1791497066
+// t4 1791497479
+// t5 1791497609
+// t6 1791497846
+// t7 1791497903
+// t8 1791499054
+// t9 1791499091
+// t10 1791499342
+// t11 1791499590
+// t12 1791499634
+// t13 1791499815
+// t14 1791500149
+// t15 1791500339
+// t16 1791500483
+// t17 1791500828
+// t18 1791500854
+// t19 1791500888
+// t20 1791501415
+// t21 1791501500
+// t22 1791501606
+// t23 1791501750
+// t24 1791502170
+// t25 1791502216
+// t26 1791502252
+// t27 1791502287
+// t28 1791502312
+// t29 1791502370
+// t30 1791502456
+// t31 1791502484
+// t32 1791502548
+// t33 1791502593
+// t34 1791502622
+// t35 1791502655
+// t36 1791502720
+// t37 1791502759
+// t38 1791502804
+// t39 1791502830
+// t40 1791502870
+// t41 1791503108
+// t42 1791503219
+// t43 1791504246
+// t44 1791504483
+// t45 1791504545
+// t46 1791504624
+// t47 1791504684
+// t48 1791504728
+// t49 1791504822
+// t50 1791504865
+// t51 1791504897
+// t52 1791504945
+// t53 1791505112
+// t54 1791505153
+// t55 1791507706
+// t56 1791507749
+// t57 1791507777
+// t58 1791507846
+// t59 1791507877
+// t60 1791507954
+// t61 1791507984
+// t62 1791508020
+// t63 1791508076
+// t64 1791508121
+// t65 1791508166
+// t66 1791508201
+// t67 1791508234
+// t68 1791508291

@@ -35,7 +35,8 @@ namespace HorrorHouse
         IInteractable current;
         Canvas canvas;
         Text promptLabel;
-        Image reticle;
+        Image reticle, ring;
+        float ringAmount;
 
         void Awake()
         {
@@ -54,7 +55,15 @@ namespace HorrorHouse
                 if (show) promptLabel.text = $"[ E ]   {current.Prompt}";
             }
             if (reticle != null)
-                reticle.color = show ? new Color(1f, 1f, 1f, 0.85f) : new Color(1f, 1f, 1f, 0.28f);
+                reticle.color = show ? new Color(1f, 1f, 1f, 0.95f) : new Color(1f, 1f, 1f, 0.55f);
+            if (ring != null)
+            {
+                // The ring opens up around the dot when something can be used, and closes again
+                // when it cannot - the cursor itself says "interactable" before any text does.
+                ringAmount = Mathf.MoveTowards(ringAmount, show ? 1f : 0f, Time.unscaledDeltaTime * 9f);
+                ring.color = new Color(1f, 1f, 1f, 0.9f * ringAmount);
+                ring.rectTransform.localScale = Vector3.one * Mathf.Lerp(0.55f, 1f, ringAmount);
+            }
 
             if (show && InteractPressed()) current.Interact(gameObject);
         }
@@ -121,10 +130,22 @@ namespace HorrorHouse
             var dot = new GameObject("Reticle") { hideFlags = HideFlags.DontSave };
             dot.transform.SetParent(go.transform, false);
             reticle = dot.AddComponent<Image>();
-            reticle.color = new Color(1f, 1f, 1f, 0.28f);
+            reticle.sprite = DiscSprite(32, 0f);
+            reticle.color = new Color(1f, 1f, 1f, 0.55f);
+            reticle.raycastTarget = false;
             var dotRt = dot.GetComponent<RectTransform>();
-            dotRt.sizeDelta = new Vector2(5f, 5f);
+            dotRt.sizeDelta = new Vector2(7f, 7f);
             dotRt.anchoredPosition = Vector2.zero;
+
+            var ringGo = new GameObject("InteractRing") { hideFlags = HideFlags.DontSave };
+            ringGo.transform.SetParent(go.transform, false);
+            ring = ringGo.AddComponent<Image>();
+            ring.sprite = DiscSprite(96, 0.82f);
+            ring.color = new Color(1f, 1f, 1f, 0f);
+            ring.raycastTarget = false;
+            var ringRt = ringGo.GetComponent<RectTransform>();
+            ringRt.sizeDelta = new Vector2(34f, 34f);
+            ringRt.anchoredPosition = Vector2.zero;
 
             var label = new GameObject("Prompt") { hideFlags = HideFlags.DontSave };
             label.transform.SetParent(go.transform, false);
@@ -144,6 +165,24 @@ namespace HorrorHouse
             var shadow = label.AddComponent<Outline>();
             shadow.effectColor = new Color(0f, 0f, 0f, 0.8f);
             shadow.effectDistance = new Vector2(1.2f, -1.2f);
+        }
+
+        /// <summary>Soft-edged disc, or a ring when <paramref name="hole"/> is the inner radius fraction.</summary>
+        static Sprite DiscSprite(int size, float hole)
+        {
+            var tex = new Texture2D(size, size, TextureFormat.RGBA32, false) { hideFlags = HideFlags.DontSave };
+            float r = size * 0.5f;
+            for (int y = 0; y < size; y++)
+            for (int x = 0; x < size; x++)
+            {
+                float d = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), new Vector2(r, r)) / r;
+                float outer = Mathf.Clamp01((1f - d) * r * 0.9f);
+                float a = outer;
+                if (hole > 0f) a *= Mathf.Clamp01((d - hole) * r * 0.9f + 0.5f) * (hole > 0f ? 1f : 0f);
+                tex.SetPixel(x, y, new Color(1f, 1f, 1f, a));
+            }
+            tex.Apply();
+            return Sprite.Create(tex, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f));
         }
 
         static Font BuiltinFont()
