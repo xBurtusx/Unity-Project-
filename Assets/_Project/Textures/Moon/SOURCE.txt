@@ -1,0 +1,4 @@
+﻿Moon image: NASA/Goddard Space Flight Center Scientific Visualization Studio, "Full Moon"
+(NASA image GSFC_20171208_Archive_e001861), built from Lunar Reconnaissance Orbiter data.
+NASA media are generally not copyrighted. Downloaded from images.nasa.gov (about 0.5 MB, 2400x2400).
+The shader rotates it 180 degrees, which is how the Moon appears from the southern hemisphere.

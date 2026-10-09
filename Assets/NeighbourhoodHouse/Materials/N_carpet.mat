@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
   m_InvalidKeywords: []
@@ -28,11 +29,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: f2006bb9700d4534f9ac3ee42a46fb29, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8ae9f3a1e51a9804b917811f29e02563, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: c6ce0875ea0e5e44bbaf66216908fb4a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9989d5622a2e99e4e8182709b5161631, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -52,15 +53,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f2006bb9700d4534f9ac3ee42a46fb29, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8ae9f3a1e51a9804b917811f29e02563, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1bce7fbecdafb2e47bd09920e2b32e20, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 258a17ed3aa8ff84b8ba5030b4156894, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1bce7fbecdafb2e47bd09920e2b32e20, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -90,7 +91,7 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BumpScale: 0.8
+    - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -104,13 +105,13 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _OcclusionStrength: 0.8
+    - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ScreenSpaceReflections: 1
     - _ScreenSpaceReflectionsContributeTransparent: 1
-    - _Smoothness: 0.05
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -120,8 +121,8 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.8, g: 0.78, b: 0.74, a: 1}
-    - _Color: {r: 0.8, g: 0.78, b: 0.74, a: 1}
+    - _BaseColor: {r: 0.85, g: 0.82, b: 0.78, a: 1}
+    - _Color: {r: 0.85, g: 0.82, b: 0.78, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

@@ -150,8 +150,8 @@ namespace HorrorHouse.EditorTools
             ls.lightmapMaxSize = 1024;
             ls.lightmapCompression = LightmapCompression.NormalQuality;
             ls.ao = false;
-            ls.indirectScale = 2.8f;     // boosts all bounced light: the cheap way to a brighter, more evenly lit interior
-            ls.albedoBoost = 1.6f;       // light bounces off pale surfaces more strongly, so rooms fill in
+            ls.indirectScale = 1.5f;     // a sunlit HDRI sky supplies real bounce light; the old 2.8 only compensated for a dark flat ambient
+            ls.albedoBoost = 1.2f;
             EditorUtility.SetDirty(ls);
             return ls;
         }
@@ -162,8 +162,8 @@ namespace HorrorHouse.EditorTools
         public static void Bake()
         {
             var sun = GameObject.Find("Sun");
-            if (sun != null && sun.TryGetComponent(out Light l)) { l.lightmapBakeType = LightmapBakeType.Mixed; l.bounceIntensity = 6f; }
-            RenderSettings.ambientIntensity = 2.3f;       // a brighter sky means brighter light spilling in through the windows
+            if (sun != null && sun.TryGetComponent(out Light l)) { l.lightmapBakeType = LightmapBakeType.Mixed; l.bounceIntensity = 1.5f; }
+            // Ambient now comes from the HDRI sky (see RealismPass); forcing it up here would overexpose the whole scene.
             EnsureAmbientOcclusion();
 
             Lightmapping.lightingSettings = MakeSettings();

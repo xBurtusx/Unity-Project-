@@ -25,6 +25,9 @@ namespace HorrorHouse
         [Header("State")]
         public bool isOn;
 
+        [Tooltip("Brightness of the lit shade or bulb. Above ~2 it blooms, which is what makes a lamp look lit.")]
+        public float glowIntensity = 3.5f;
+
         [Header("Fault behaviour")]
         [Tooltip("Chance per second that this light flickers on its own. Keep at 0 for most " +
                  "fixtures - a house where everything flickers reads as a funfair, not a home.")]
@@ -86,6 +89,9 @@ namespace HorrorHouse
 
         public void Toggle() => Set(!isOn);
 
+        /// <summary>Re-reads the Light and glow renderer and applies state; lets edit-mode tools preview a lit or unlit fixture.</summary>
+        public void RefreshInEditor() { Awake(); Apply(); }
+
         void Apply()
         {
             if (lamp != null)
@@ -100,7 +106,7 @@ namespace HorrorHouse
             {
                 glowRenderer.GetPropertyBlock(block);
                 var c = lamp != null ? lamp.color : Color.white;
-                block.SetColor("_EmissionColor", isOn ? c * 2.2f : Color.black);
+                block.SetColor("_EmissionColor", isOn ? c * glowIntensity : Color.black);
                 glowRenderer.SetPropertyBlock(block);
             }
         }

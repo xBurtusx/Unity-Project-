@@ -20,10 +20,23 @@ namespace HorrorHouse.EditorTools
     {
         const string Marker = "Temp/horrorhouse_autorun";
 
+        static double nextPoll;
+
         static AutoRun()
         {
             // Wait for the Editor to finish settling before touching the scene.
             EditorApplication.delayCall += TryRun;
+
+            // A one-shot callback can be lost across reloads, leaving a request unread forever.
+            // Polling once a second also means a request no longer needs a recompile to be noticed.
+            EditorApplication.update += Poll;
+        }
+
+        static void Poll()
+        {
+            if (EditorApplication.timeSinceStartup < nextPoll) return;
+            nextPoll = EditorApplication.timeSinceStartup + 1.0;
+            if (File.Exists(Marker)) TryRun();
         }
 
         static void TryRun()
@@ -34,7 +47,7 @@ namespace HorrorHouse.EditorTools
             // SCRIPTS have finished compiling. Run here and the marker gets eaten by the old
             // assembly, which silently ignores any action the new code just added - the request
             // appears to succeed while doing nothing. Wait for the Editor to go quiet first.
-            if (EditorApplication.isCompiling || EditorApplication.isUpdating)
+            if (EditorApplication.isCompiling || EditorApplication.isUpdating || EditorApplication.isPlayingOrWillChangePlaymode)
             {
                 EditorApplication.delayCall += TryRun;
                 return;
@@ -49,6 +62,18 @@ namespace HorrorHouse.EditorTools
             if (request.Contains("player")) PlayerSetup.Create();
             if (request.Contains("textures")) TextureFactory.Generate();
             if (request.Contains("atmosphere")) AtmosphereSetup.Setup();
+            if (request.Contains("dumpinfo")) SceneInfoDump.Run();
+            if (request.Contains("furnaudit")) FurnitureAudit.Run();
+            if (request.Contains("genaudio")) ProceduralAudio.Generate();
+            if (request.Contains("recorded")) RecordedAudioPrep.Run();
+            if (request.Contains("mainhouse")) MainHouseDiag.Run();
+            if (request.Contains("realism")) RealismPass.Run();
+            if (request.Contains("furnrepair")) FurnitureRepair.Run();
+            if (request.Contains("furniture")) FurnitureTexturing.Run();
+            if (request.Contains("nightlife")) NightLifeSetup.Run();
+            if (request.Contains("setnight")) NightLifeSetup.SetNight();
+            if (request.Contains("setday")) NightLifeSetup.SetDay();
+            if (request.Contains("sunview")) RealismPass.LookAtSun();
             if (request.Contains("interior")) InteriorPlacer.Place();
             if (request.Contains("grass")) GrassSetup.Setup();
             if (request.Contains("shotsonly")) HouseScene.ShotsOnly();
@@ -166,3 +191,22 @@ namespace HorrorHouse.EditorTools
 // t66 1791508201
 // t67 1791508234
 // t68 1791508291
+// t21 1791521059
+// t22 1791521166
+// t23 1791521307
+// t24 1791521385
+// t25 1791522472
+// t26 1791522709
+// t27 1791522959
+// t28 1791523070
+// t29 1791523133
+// t30 1791523740
+// t31 1791524808
+// t32 1791525269
+// t33 1791525483
+// t34 1791525556
+// t35 1791525692
+// t36 1791525828
+// t37 1791528910
+// t38 1791529558
+// t39 1791530955

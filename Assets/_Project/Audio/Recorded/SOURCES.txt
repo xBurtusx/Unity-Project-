@@ -1,0 +1,10 @@
+﻿Sound recordings in this folder
+
+Footsteps/*.ogg : Kenney "Impact Sounds" (kenney.nl), CC0 1.0.
+*.mp3 and Cars/*.mp3 : BigSoundBank (bigsoundbank.com), each sound's page states
+  "CC0 (public domain): Free and royalty-free". Sources by BigSoundBank ID:
+  1880 crickets at night, 1157 fridge, 0432 pink noise, 0595 wind,
+  2996 / 2987 / 2988 car passing at 50 km/h.
+Door and light-switch clips in Slices/ are cut from BigSoundBank 1702, 1704, 0037, 0026
+  (the full originals are in Source/).
+No attribution is required by any of these licences.

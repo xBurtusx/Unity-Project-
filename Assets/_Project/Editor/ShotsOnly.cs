@@ -8,6 +8,12 @@ namespace HorrorHouse.EditorTools
         /// <summary>Photographs the existing scene without rebuilding it, so baked lighting survives. Output: Temp/after_*.png</summary>
         public static void ShotsOnly()
         {
+            // DayNightController already swaps the baked lighting for night, in the Editor as well.
+            ShotsInner();
+        }
+
+        static void ShotsInner()
+        {
             var probes = Object.FindObjectsByType<ReflectionProbe>(FindObjectsSortMode.None).OrderBy(p => p.name).ToList();
             int k = 0;
             foreach (var p in probes)
